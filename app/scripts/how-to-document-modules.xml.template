@@ -1,0 +1,32 @@
+<application>
+    <name>how-to-document-modules</name>
+
+    <dependencies>
+        <port>/icub/camcalib/left/out</port>
+    </dependencies>
+    
+    <module>
+       <name>how-to-document-modules</name>
+       <node>icub21</node>
+    </module>
+    <module>
+       <name>yarpview</name>
+       <parameters>--name /Viewer --out /Viewer/out --x 1600 --y 370 --w 600 --h 600 --p 200</parameters>
+       <node>icub22</node>
+    </module>
+
+    <connection>
+        <from>/how-to-document-modules/data:o</from>
+        <to>/Viewer</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+    <connection>
+        <from>/icub/camcalib/left/out</from>
+        <to>/how-to-document-modules/data:o</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+
+</application>
+
