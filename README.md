@@ -26,7 +26,7 @@ Now you have the same branch `gh-pages` also on your machine which tracks the _r
 
 Next step is to create the **static documentation locally**:
 - Provide thus a **sub-folder** called **`doxygen`** where you have to put the file **`generate.txt`** that tells doxygen how to generate the documentation.
-You can find a template for you `generate.txt` file [here](https://github.com/giuliavezzani/superquadric-detection/blob/gh-pages/doxygen/generate.txt).
+You can find a template for you `generate.txt` file [here](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/generate.txt).
 
     A lot of variables are available. The most important one is **`INPUT`** that specifies the folders containing your code to be documented (a recursive search is typically done). An example follows:
     ```
@@ -51,11 +51,10 @@ git commit -m "provided doxygen documentation"
 git push origin gh-pages
 ```
 - Your `index.html` file should look like [**this one**](https://github.com/giuliavezzani/superquadric-detection/blob/gh-pages/index.html), pointing to the generated html page, which you would like to be the home page of your documentation. After publishing the changes, you will have the url http://my-account.github.com/my-repository pointing to the documentation linked in the **index.html** on the web. It is advisable to cite that url from within the README.md file.
-You can see an example in the home page of [superquadric-detection](https://github.com/giuliavezzani/superquadric-detection).
 
 
 ### Updating the documentation
-By creation, the special `gh-pages` branch should always mirror the `master` branch and should contain two things more: the doxygen folder along with the `index.html` file. Regarding the commit history, `gh-pages` should be always [one commit ahead the `master`](https://github.com/giuliavezzani/superquadric-detection/network).
+By creation, the special `gh-pages` branch should always mirror the `master` branch and should contain two things more: the doxygen folder along with the `index.html` file. Regarding the commit history, `gh-pages` should be always [one commit ahead the `master`](https://github.com/robotology-playground/how-to-document-modules/network).
 
 Whenever you update `master` branch then, do the following to update the documentation accordingly:
 
@@ -84,7 +83,7 @@ At the following links, you can find some guidelines on how to write the documen
 [thrift service](http://www.yarp.it/thrift_tutorial_simple.html) and [general description of your module](http://www.yarp.it/yarpmanager.html#module).
 
 ###### Documentation generated from xml
-Once you have your documentation ready, you can add a simple script in your doxygen folder, e.g. [doc-compile.sh for Linux](sh.md) or [doc-compile.ps1 for Windows](sh-win.md).
+Once you have your documentation ready, you can add a simple script in your doxygen folder, e.g. [doc-compile.sh for Linux](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.sh) or [doc-compile.ps1 for Windows](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.ps1).
 In both the scripts, the first part allows the automatically generation of documentation from the xml file. This documentation will be put inside the **/generated-from-xml** folder and this is the reason why we need to include **/generated-from-xml** in the generate.txt.
 
 Thus, you can compile or update your documentation just typing:
