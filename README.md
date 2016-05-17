@@ -1,7 +1,9 @@
 # how-to-document-modules
 Scripts and templates to help you document your code nicely. 
 
-In the following sections, you can find a detailed description on how to document your module and, if available, your thrift services. You can look at this repo structure and files as a model for your developing documented repo. 
+In the following sections, you can find a detailed description on how to document your module and, if available, your thrift services. You can look at this repo structure and files as a model for your developing documented repo.
+
+Please be careful: the implemented code is just a _fake module_ to show you how to deal with documentation!
 
 ## Description
 A clean way to handle your module documentation is to exploit the [GitHub Pages](https://pages.github.com/), which can be used to publish software documentation online
