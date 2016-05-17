@@ -1,0 +1,47 @@
+
+  /**
+  *
+  * @ingroup 
+  * \defgroup how-to-document-modules how-to-document-modules
+  * Short description of your work.
+  * Version: version of your code
+  * \author  Name Surname your-email@email.org
+  * \n
+  * \copyright  License terms, for example: released under the terms of the GNU GPL v2.0 .
+  * \section intro_sec Description
+  *
+  
+   Here you can provide a detailed description of what your module does, how it is structured, how it works, how to use it and so on.
+  
+  * \section parameters_sec Parameters
+  
+  *- --parameter-0: Describe the meaning and effect of parameter no. 0
+  *- --parameter-1: Describe the meaning and effect of parameter no. 1
+  * \section inputports_sec Input Ports
+  * 
+  *- /how-to-document-modules/data:i [data type]  [default carrier:tcp/udp/..]: 
+            Short description of your port behaviour.
+          
+  *
+  
+  * \section outputports_sec Output Ports
+  * 
+  *- /how-to-document-modules/data:o [data type]  [default carrier:tcp/udp/..]: 
+            Short description of your port behaviour.
+          
+  *
+  
+  *
+  * \section services_sec Services
+  * 
+  *- /how-to-document-modules/rpc
+  *  [rpc-server]: 
+  * service port
+  * . This service is described in howToDocument_IDL (idl.thrift)
+  * 
+  *
+  * 
+  *
+  *
+  **/
+
