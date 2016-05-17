@@ -50,7 +50,7 @@ git add ./index.html
 git commit -m "provided doxygen documentation"
 git push origin gh-pages
 ```
-- Your `index.html` file should look like [**this one**](https://github.com/giuliavezzani/superquadric-detection/blob/gh-pages/index.html), pointing to the generated html page, which you would like to be the home page of your documentation. After publishing the changes, you will have the url http://my-account.github.com/my-repository pointing to the documentation linked in the **index.html** on the web. It is advisable to cite that url from within the README.md file.
+- Your `index.html` file should look like [**this one**](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/index.html), pointing to the generated html page, which you would like to be the home page of your documentation. After publishing the changes, you will have the url http://my-account.github.com/my-repository pointing to the documentation linked in the **index.html** on the web. In this case the url is http://robotology-playground.github.com/how-to-document-modules. It is advisable to cite that url from within the README.md file in this way for example: [how-to-document-modules documentation](http://robotology-playground.github.io/how-to-document-modules).
 
 
 ### Updating the documentation
