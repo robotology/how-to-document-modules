@@ -84,7 +84,7 @@ At the following links, you can find some guidelines on how to write the documen
 
 ###### Documentation generated from xml
 Once you have your documentation ready, you can add a simple script in your doxygen folder, e.g. [doc-compile.sh for Linux](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.sh) or [doc-compile.ps1 for Windows](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.ps1).
-In both the scripts, the first part allows the automatically generation of documentation from the xml file. This documentation will be put inside the **/generated-from-xml** folder and this is the reason why we need to include **/generated-from-xml** in the generate.txt.
+In both the scripts, the first part allows the automatically generation of documentation from the xml file. This documentation will be put inside the **generated-from-xml** folder and this is the reason why we need to include **generated-from-xml** in the generate.txt.
 
 Thus, you can compile or update your documentation just typing:
 
@@ -108,5 +108,5 @@ sh doc-compile.sh
   ```
 
 ### Why did we include also the idl_dox folder? (TEMPORARY WORKAROUND)
-This folder is necessary only if you have implemented the thrift services. In this case, the file **modulename_IDL.h** will be generated automatically inside the **/build** folder. Ignoring the build folder in github repo is a good practice. Then, How can we track the **modulename_IDL.h** file if it is in the /build folder?
+This folder is necessary only if you have implemented the thrift services. In this case, the file **modulename_IDL.h** will be generated automatically inside the **build** folder. Ignoring the build folder in github repo is a good practice. Then, How can we track the **modulename_IDL.h** file if it is in the build folder?
 Currently, the solution is roughly provided by a simple `paste and copy` step of that file inside the idl_dox folder. This is just a **temporary workwaround** and a better solution will be provided soon!
