@@ -1,7 +1,7 @@
 # how-to-document-modules
 Scripts and templates to help you document your code nicely. 
 
-In the following sections, you can find a detailed description on how to document your module and, if available, your thrift services. You can look at this repo structure and files as a model for your developing documented repo.
+In the following sections, you can find a detailed description on how to document your module and your thrift services ( if your module provides them). You can look at this repo structure and files as a model for your developing documented repo.
 
 Please be careful: the implemented code is just a _fake module_ to show you how to deal with documentation!
 
@@ -74,10 +74,14 @@ The **`git log -1`** command serves as verification and does display the very la
 
 ### How to write the documentation
 
-The usage of two differen kinds of files is is strongly suggested for code documentation:
+You are invited to provide your module documentation through an _xml file_:
 
-- **idl.thrift** file if your module includes a thrift service;
-- **module-name.xml** for the general description of your module.
+- **module-name.xml** for the general description.
+
+If your module includes also _thirft services_, then you have to document them whithin another file:
+
+- **idl.thrift** , in which you can list and document all the available services;
+
 
 At the following links, you can find some guidelines on how to write the documentation for  
 [thrift service](http://www.yarp.it/thrift_tutorial_simple.html) and [general description of your module](http://www.yarp.it/yarpmanager.html#module).
@@ -86,26 +90,9 @@ At the following links, you can find some guidelines on how to write the documen
 Once you have your documentation ready, you can add a simple script in your doxygen folder, e.g. [doc-compile.sh for Linux](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.sh) or [doc-compile.ps1 for Windows](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.ps1).
 In both the scripts, the first part allows the automatically generation of documentation from the xml file. This documentation will be put inside the **generated-from-xml** folder and this is the reason why we need to include **generated-from-xml** in the generate.txt.
 
-Thus, you can compile or update your documentation just typing:
+Thus, you can exploit the script to easily compile or update your documentation.
 
-- for Linux users:
-```
-cd doxygen/
-sh doc-compile.sh
-```
-- for Windows users:
-
-  ```
-  1. Launch PowerShell
-  2. Navigate to the directory where the script lives:
-  3. Execute the scritp: .\my_script.ps1
-
-  or
-
-  you can run the PowerShell script from cmd.exe like this:
-  powershell -noexit "& ""C:\my_path\my_script.ps1""" (enter)
-
-  ```
+ 
 
 ### Why did we include also the idl_dox folder? (TEMPORARY WORKAROUND)
 This folder is necessary only if you have implemented the thrift services. In this case, the file **modulename_IDL.h** will be generated automatically inside the **build** folder. Ignoring the build folder in github repo is a good practice. Then, How can we track the **modulename_IDL.h** file if it is in the build folder?
