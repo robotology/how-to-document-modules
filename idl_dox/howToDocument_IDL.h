@@ -20,7 +20,7 @@ class howToDocument_IDL : public yarp::os::Wire {
 public:
   howToDocument_IDL();
   /**
-   * This an example service, just printing a sentence.
+   * This is an example service, just printing a sentence.
    * Here you have to document how your service works and
    * if parameters are required, you have to describe them. Otherwise
    * you have just to say what your method returns.

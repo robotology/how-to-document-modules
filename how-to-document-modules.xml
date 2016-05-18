@@ -5,7 +5,7 @@
   <name>how-to-document-modules</name>
   <doxygen-group></doxygen-group>
   <description>Short description of your work.</description>
-  <copypolicy> License.</copypolicy>
+  <copypolicy> License terms, for example: released under the terms of the GNU GPL v2.0 .</copypolicy>
   <version> version of your code</version>
   
   <description-long>
@@ -14,7 +14,7 @@
   </description-long>
 
   <arguments>
-    <param default="default-value" desc="Describe the meaning and effect of param. no. 1">parameter no. 1</param>
+    <param default="default-value" desc="Describe the meaning and effect of parameter no. 1">parameter no. 1</param>
   
   </arguments>
  
