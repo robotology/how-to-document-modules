@@ -4,12 +4,12 @@
 <module>
   <name>how-to-document-modules</name>
   <doxygen-group></doxygen-group>
-  <description>Short descripiton of your work.</description>
-  <copypolicy>License.</copypolicy>
-  <version>version of your code</version>
+  <description>Short description of your work.</description>
+  <copypolicy> License.</copypolicy>
+  <version> version of your code</version>
   
   <description-long>
-   Here you can provide a detailed description of what you module does, how it is structured, how it works, how to use it and so on.
+   Here you can provide a detailed description of what your module does, how it is structured, how it works, how to use it and so on.
 
   </description-long>
 
@@ -19,7 +19,7 @@
   </arguments>
  
   <authors>
-    <author email="name.surname@iit.it"> Name Surname</author>
+    <author email="name.surname@iit.it"> Name Surname </author>
   </authors>
 
   <data>

@@ -15,26 +15,15 @@
  * Public License for more details
 */
 
-#include <cmath>
-#include <algorithm>
 #include <string>
-#include <sstream>
-#include <deque>
-#include <map>
-#include <set>
-#include <fstream>
 #include <iomanip>
 
 #include <yarp/os/all.h>
-#include <yarp/dev/all.h>
-#include <yarp/sig/all.h>
 
 #include "src/howToDocument_IDL.h"
 
 using namespace std;
 using namespace yarp::os;
-using namespace yarp::dev;
-using namespace yarp::sig;
 
 class FakeModule : public RFModule,
                    public howToDocument_IDL
