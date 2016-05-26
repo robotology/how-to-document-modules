@@ -78,7 +78,7 @@ You are invited to provide your module documentation through an _xml file_:
 
 - **module-name.xml** for the general description.
 
-If your module includes also _thirft services_, then you have to document them whithin another file:
+If your module includes also _thrift services_, then you have to document them whithin another file:
 
 - **idl.thrift** , in which you can list and document all the available services;
 
