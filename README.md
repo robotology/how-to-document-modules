@@ -1,20 +1,17 @@
-# how-to-document-modules
-Scripts and templates to help you document your code nicely. 
+## Introduction
 
-In the following sections, you can find a detailed description on how to document your module and your thrift services ( if your module provides them). You can look at this repo structure and files as a model for your developing documented repo.
+This template repository provides a detailed guide on how your modules, and possibly their API you exposed as _IDL services_, should be documented.
 
-Please be careful: the implemented code is just a _fake module_ to show you how to deal with documentation!
+A clean and handy way to deal with your documentation is to exploit the [**GitHub Pages**](https://pages.github.com/), which represents a nice tool to publish software documentation online.
 
-## Description
-A clean way to handle your module documentation is to exploit the [GitHub Pages](https://pages.github.com/), which can be used to publish software documentation online
-. Everything is basically done through the special branch called `gh-pages`. The branch must contain at the root level the **index.html** file pointing to the static documentation stored somewhere within the branch itself. However, the documentation generated with tools like _doxygen_ might be composed of many products (sometimes images), thus it would be worth saving space on the repo by not retaining any history for those files.
+Everything is basically done through the special branch called **`gh-pages`**. The branch must contain at the root level the **index.html** file pointing to the static documentation (generally generated via [**doxygen**](www.doxygen.org)) stored somewhere within the branch itself. Further, the static documentation might be composed of many products (sometimes images), thus it would be worth saving space on the repository by not retaining any history for those files.
 
-First off, we explain how to **create the infrastructure** for the documentation using git and keep it **up-to-date** over changes the code undergoes. Then, we will go into the details on how to use **doxygen** to write up the documentation.
+First off, we explain how to **create the infrastructure** for the documentation using _git_ and keep it **up-to-date** throughout the changes the code undergoes. Then, we will dig into how we can use **doxygen** to write up the documentation.
 
-Let's start:
+Let's start :sparkles:
 
 ### Creating the infrastructure
-From `master`, create a new branch called `gh-pages` on your GitHub repository. Then, locally do:
+From `master`, create a new branch called `gh-pages` on your repository. Then, locally do:
 
 ```
 git checkout master
@@ -25,32 +22,39 @@ git checkout gh-pages
 Now you have the same branch `gh-pages` also on your machine which tracks the _remote_ `gh-pages`.
 
 Next step is to create the **static documentation locally**:
-- Provide thus a **sub-folder** called **`doxygen`** where you have to put the file **`generate.txt`** that tells doxygen how to generate the documentation.
-You can find a template for you `generate.txt` file [here](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/generate.txt).
+- Provide thus a **sub-directory** called **`doxygen`** where you have to put the file **`generate.txt`** that tells doxygen how to produce the documentation.
+You can find a template `generate.txt` file [here](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/generate.txt) within this repository.
 
-    A lot of variables are available. The most important one is **`INPUT`** that specifies the folders containing your code to be documented (a recursive search is typically done). An example follows:
+    Inside the `generate.txt` file, the most important parameter you are required to fill in is **`INPUT`**, which specifies the directories containing your code to be documented (a recursive search is typically done). An example follows:
     ```
     INPUT = ../src \
             ../idl_dox \
             generated-from-xml
     ```
-    Usually, to be neat, the file `generate.txt` contains instructions to put the generated documentation under **doxygen/doc** (this is recalled later) via the variable **`OUTPUT_DIRECTORY`**.
+    Typically, to be neat, the file `generate.txt` contains instructions to generate the documentation under **doxygen/doc** via the parameter **`OUTPUT_DIRECTORY`**.
+
+    To find out more about other doxygen parameters, we suggest you to look directly at the online guide.
 
 - Now type:
 ```
 cd doxygen
 doxygen ./generate.txt
  ```
- This will generate your documentation. A new folder, called **doc** will appear containing all your documentation.
+ This will generate your documentation. The new directory **doxygen/doc** will appear containing all your documentation.
 
-- Stage, commit and push the doxygen directory so as the **`index.html`** file to be located at the root level.
+- Create the `index.html` file at the root level of your repository that provides the entry point to your documentation. This is an [**example**](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/index.html).
+
+- Stage, commit and push:
 ```
 git add ./doxygen
 git add ./index.html
 git commit -m "provided doxygen documentation"
 git push origin gh-pages
 ```
-- Your `index.html` file should look like [**this one**](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/index.html), pointing to the generated html page, which you would like to be the home page of your documentation. After publishing the changes, you will have the url http://my-account.github.com/my-repository pointing to the documentation linked in the **index.html** on the web. In this case the url is http://robotology-playground.github.com/how-to-document-modules. It is advisable to cite that url from within the README.md file in this way for example: [how-to-document-modules documentation](http://robotology-playground.github.io/how-to-document-modules).
+
+After publishing the changes, you can visit the page http://robotology-playground.github.com/how-to-document-modules (of course use your github account and repository name in the url) and you will be redirected to the online documentation.
+
+Finally, it is also a good practice to cite that url from within the _README.md_ file.
 
 
 ### Updating the documentation
@@ -74,26 +78,25 @@ The **`git log -1`** command serves as verification and does display the very la
 
 ### How to write the documentation
 
-You are invited to provide your module documentation through an _xml file_:
+You have to provide the documentation of your module through an _xml file_:
 
 - **module-name.xml** for the general description.
 
-If your module includes also _thrift services_, then you have to document them whithin another file:
+Moreover, if your module also exposes an IDL generated API, then the corresponding services should be documented in the relative _thrift file_:
 
-- **idl.thrift** , in which you can list and document all the available services;
+- **idl.thrift** listing and documenting all the available services.
 
 
-At the following links, you can find some guidelines on how to write the documentation for  
-[thrift service](http://www.yarp.it/thrift_tutorial_simple.html) and [general description of your module](http://www.yarp.it/yarpmanager.html#module).
+We don't go here into more details since at the following links, you'll find official guidelines on how to write the documentation for:
+- [xml description of your module](http://www.yarp.it/yarpmanager.html#module).
+- [thrift services](http://www.yarp.it/thrift_tutorial_simple.html).
 
-###### Documentation generated from xml
-Once you have your documentation ready, you can add a simple script in your doxygen folder, e.g. [doc-compile.sh for Linux](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.sh) or [doc-compile.ps1 for Windows](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.ps1).
-In both the scripts, the first part allows the automatically generation of documentation from the xml file. This documentation will be put inside the **generated-from-xml** folder and this is the reason why we need to include **generated-from-xml** in the generate.txt.
+#### Documentation generated from xml
+The xml file containing the general description of the modules cannot be automatically digested by doxygen, requiring first a conversion into the dox language by means of a style sheet parser shipped with Yarp. To this end, you can profitably rely on scripts we made for you, which automate this operation:
+- [doc-compile.sh](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.sh): a bash script for Linux.
+- [doc-compile.ps1](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.ps1): a powershell script for Windows.
 
-Thus, you can exploit the script to easily compile or update your documentation.
+These scripts need to be located within the doxygen directory. They apply style sheet conversion and produce documentation in one go. The final products will be then put under the **doxygen/generated-from-xml** directory. Therefore, doxygen must be aware of the latter path when collecting all the files we want document. For this reason, this path is declared in the **`INPUT`** section of the `generate.txt` file.
 
- 
-
-### Why did we include also the idl_dox folder? (TEMPORARY WORKAROUND)
-This folder is necessary only if you have implemented the thrift services. In this case, the file **modulename_IDL.h** will be generated automatically inside the **build** folder. Ignoring the build folder in github repo is a good practice. Then, How can we track the **modulename_IDL.h** file if it is in the build folder?
-Currently, the solution is roughly provided by a simple `paste and copy` step of that file inside the idl_dox folder. This is just a **temporary workwaround** and a better solution will be provided soon!
+#### Why do we also specify the **doxygen/idl_dox** directory as further input?
+This directory is necessary only if you provide Thrift services using the `yarp_add_idl` cmake directive. In this case, the file **modulename_IDL.h** will be generated automatically inside the **build**, which is generally ignored by doxygen in its search. Thereby, as **temporary workaround solution**, we suggest to `copy and paste` the header file from the build into the **doxygen/idl_dox** stub and make doxygen aware of its presence by filling the **`INPUT`** parameter.
