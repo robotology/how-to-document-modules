@@ -80,7 +80,7 @@ The **`git log -1`** command serves as verification and does display the very la
 
 You have to provide the documentation of your module through an _xml file_:
 
-- **module-name.xml** for the general description.
+- **modulename.xml** for the general description.
 
 Moreover, if your module also exposes an IDL generated API, then the corresponding services should be documented in the relative _thrift file_:
 
@@ -98,5 +98,5 @@ The xml file containing the general description of the modules cannot be automat
 
 These scripts need to be located within the doxygen directory. They apply style sheet conversion and produce documentation in one go. The final products will be then put under the **doxygen/generated-from-xml** directory. Therefore, doxygen must be aware of the latter path when collecting all the files we want document. For this reason, this path is declared in the **`INPUT`** section of the `generate.txt` file.
 
-#### Why do we also specify the **doxygen/idl_dox** directory as further input?
-This directory is necessary only if you provide Thrift services using the `yarp_add_idl` cmake directive. In this case, the file **modulename_IDL.h** will be generated automatically inside the **build**, which is generally ignored by doxygen in its search. Thereby, as **temporary workaround solution**, we suggest to `copy and paste` the header file from the build into the **doxygen/idl_dox** stub and make doxygen aware of its presence by filling the **`INPUT`** parameter.
+#### Why do we also specify the **idl_dox** directory as further input?
+This directory is necessary only if you provide Thrift services using the `yarp_add_idl` cmake directive. In this case, the file **modulename_IDL.h** will be generated automatically inside the **build**, which is generally ignored by doxygen in its search. Thereby, as **temporary workaround solution**, we suggest to `copy and paste` the header file from the build into the **idl_dox** stub and make doxygen aware of its presence by filling the **`INPUT`** parameter.
