@@ -87,7 +87,7 @@ Moreover, if your module also exposes an IDL generated API, then the correspondi
 - **idl.thrift** listing and documenting all the available services.
 
 
-We don't go here into more details since at the following links, you'll find official guidelines on how to write the documentation for:
+We don't go here into more details since at the following links you'll find official guidelines on how to write the documentation for:
 - [xml description of your module](http://www.yarp.it/yarpmanager.html#module).
 - [Thrift services](http://www.yarp.it/thrift_tutorial_simple.html).
 
