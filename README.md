@@ -89,14 +89,14 @@ Moreover, if your module also exposes an IDL generated API, then the correspondi
 
 We don't go here into more details since at the following links, you'll find official guidelines on how to write the documentation for:
 - [xml description of your module](http://www.yarp.it/yarpmanager.html#module).
-- [thrift services](http://www.yarp.it/thrift_tutorial_simple.html).
+- [Thrift services](http://www.yarp.it/thrift_tutorial_simple.html).
 
 #### Documentation generated from xml
 The xml file containing the general description of the modules cannot be automatically digested by doxygen, requiring first a conversion into the dox language by means of a style sheet parser shipped with Yarp. To this end, you can profitably rely on scripts we made for you, which automate this operation:
 - [doc-compile.sh](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.sh): a bash script for Linux.
 - [doc-compile.ps1](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.ps1): a powershell script for Windows.
 
-These scripts need to be located within the doxygen directory. They apply style sheet conversion and produce documentation in one go. The final products will be then put under the **doxygen/generated-from-xml** directory. Therefore, doxygen must be aware of the latter path when collecting all the files we want document. For this reason, this path is declared in the **`INPUT`** section of the `generate.txt` file.
+These scripts need to be located within the doxygen directory. They apply style sheet conversion and produce documentation in one go. The final products will be then put under the **doxygen/generated-from-xml** directory. Therefore, doxygen must be aware of the latter path when collecting all the files we want to document. For this reason, this path is declared in the **`INPUT`** section of the `generate.txt` file.
 
 #### Why do we also specify the **idl_dox** directory as further input?
 This directory is necessary only if you provide Thrift services using the `yarp_add_idl` cmake directive. In this case, the file **modulename_IDL.h** will be generated automatically inside the **build**, which is generally ignored by doxygen in its search. Thereby, as **temporary workaround solution**, we suggest to `copy and paste` the header file from the build into the **idl_dox** stub and make doxygen aware of its presence by filling the **`INPUT`** parameter.
