@@ -6,7 +6,7 @@ A clean and handy way to deal with your documentation is to exploit the [**GitHu
 
 Everything is basically done through the special branch called **`gh-pages`**. The branch must contain at the root level the **index.html** file pointing to the static documentation (generally generated via [**doxygen**](www.doxygen.org)) stored somewhere within the branch itself. Further, the static documentation might be composed of many products (sometimes images), thus it would be worth saving space on the repository by not retaining any history for those files.
 
-First off, we explain how to **create the infrastructure** for the documentation using _git_ and keep it **up-to-date** throughout the changes the code undergoes. Then, we will dig into how we can use **doxygen** to write up the documentation.
+First off, we explain how to **create the infrastructure** for the documentation using _git_ and keep it **up-to-date** throughout the changes the code undergoes. Then, we will dig into how we can use **doxygen** to generate the documentation.
 
 Let's start :sparkles:
 
