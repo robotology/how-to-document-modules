@@ -42,7 +42,7 @@ doxygen ./generate.txt
  ```
  This will generate your documentation. The new directory **doxygen/doc** will appear containing all your documentation.
 
-- Create the `index.html` file at the root level of your repository that provides the entry point to your documentation. This is an [**example**](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/index.html).
+- Create the `index.html` file at the root level of your repository that provides the entry point to your documentation. This is an [**example**](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/index.html) you have to tailor to your specific repository.
 
 - Stage, commit and push:
 ```
@@ -58,7 +58,7 @@ Finally, it is also a good practice to cite that url from within the _README.md_
 
 
 ### Updating the documentation
-By creation, the special `gh-pages` branch should always mirror the `master` branch and should contain two things more: the doxygen folder along with the `index.html` file. Regarding the commit history, `gh-pages` should be always [one commit ahead the `master`](https://github.com/robotology-playground/how-to-document-modules/network).
+By creation, the special `gh-pages` branch should always mirror the `master` branch and should contain two things more: the doxygen directory along with the `index.html` file. Regarding the commit history, `gh-pages` should be always [one commit ahead the `master`](https://github.com/robotology-playground/how-to-document-modules/network).
 
 Whenever you update `master` branch then, do the following to update the documentation accordingly:
 
