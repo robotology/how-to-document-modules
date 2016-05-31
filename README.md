@@ -54,7 +54,7 @@ git push origin gh-pages
 
 After publishing the changes, you can visit the page http://robotology.github.com/how-to-document-modules (of course use your github account and repository name in the url) and you will be redirected to the online documentation.
 
-Finally, it is also a good practice to cite that url from within the _README.md_ file.
+Finally, it is also a good practice to cite that url from within the `README.md` file.
 
 
 ### Updating the documentation
