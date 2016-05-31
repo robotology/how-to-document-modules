@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 iCub Facility - Istituto Italiano di Tecnologia
+ * Copyright (C) 2016 iCub Facility - Istituto Italiano di Tecnologia
  * Author: Giulia Vezzani
  * email:  giulia.vezzani@iit.it
  * Permission is granted to copy, distribute, and/or modify this program
@@ -31,6 +31,7 @@ class FakeModule : public RFModule,
 protected:
     BufferedPort<Bottle> portOut;
     BufferedPort<Bottle>  portIn;
+
     /************************************************************************/
     bool attach(RpcServer &source)
     {
@@ -55,16 +56,15 @@ public:
     /***********************************************************************/
     bool updateModule()
     {
-        yInfo()<<"update Module is running...";
-
+        yInfo()<<"updateModule is running fine";
         return true;
     }
 
     /***********************************************************************/
     bool configure(ResourceFinder &rf)
     {
-        portOut.open("how-to-document-modules/data:o");
-        portIn.open("how-to-document-modules/data:i");
+        portOut.open("/how-to-document-modules/data:o");
+        portIn.open("/how-to-document-modules/data:i");
         return true;
     }
 
@@ -81,20 +81,21 @@ public:
     }
 };
 
-    /**********************************************************************/
-    int main(int argc,char *argv[])
-    {
-        Network yarp;
-        if (!yarp.checkNetwork())
-        {
-            yError("unable to find YARP server!");
-            return 1;
-        }
 
-        FakeModule mod;
-        ResourceFinder rf;
-        rf.setDefaultContext("superquadric-detection");
-        rf.configure(argc,argv);
-        return mod.runModule(rf);
+/**********************************************************************/
+int main(int argc,char *argv[])
+{
+    Network yarp;
+    if (!yarp.checkNetwork())
+    {
+        yError("unable to find YARP server!");
+        return 1;
     }
+
+    FakeModule mod;
+    ResourceFinder rf;
+    rf.setDefaultContext("how-to-document-modulesn");
+    rf.configure(argc,argv);
+    return mod.runModule(rf);
+}
 

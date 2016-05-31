@@ -10,12 +10,11 @@
   
   <description-long>
    Here you can provide a detailed description of what your module does, how it is structured, how it works, how to use it and so on.
-
   </description-long>
 
   <arguments>
-    <param default="default-value" desc="Describe the meaning and effect of parameter no. 1">parameter no. 1</param>
-  
+    <param default="default-value-0" desc="Describe the meaning and effect of parameter no. 0">parameter-0</param>
+    <param default="default-value-1" desc="Describe the meaning and effect of parameter no. 1">parameter-1</param>
   </arguments>
  
   <authors>
@@ -23,21 +22,20 @@
   </authors>
 
   <data>
-  <input>
-      <type>data type</type>
-      <port carrier="tcp/udp/..">/how-to-document-modules/data:i</port>
-      <description>
-        Short description of your port behaviour.
-      </description>
-  </input>
-    <output>
-      <type>data type</type>
-      <port carrier="tcp/udp/..">/how-to-document-modules/data:o</port>
-      <description>
-        Short description of your port behaviour.
-      </description>
-    </output>
-
+      <input>
+          <type>data type</type>
+          <port carrier="tcp/udp/..">/how-to-document-modules/data:i</port>
+          <description>
+            Short description of your port behaviour.
+          </description>
+      </input>
+      <output>
+          <type>data type</type>
+          <port carrier="tcp/udp/..">/how-to-document-modules/data:o</port>
+          <description>
+            Short description of your port behaviour.
+          </description>
+      </output>
   </data>
  
   <services>
@@ -50,3 +48,4 @@
   </services>
  
 </module>
+
