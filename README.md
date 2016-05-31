@@ -97,6 +97,11 @@ The xml file containing the general description of the modules cannot be automat
 - [doc-compile.sh](https://github.com/robotology/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.sh): a bash script for Linux.
 - [doc-compile.ps1](https://github.com/robotology/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.ps1): a powershell script for Windows.
 
+Dependencies to run these scripts are:
+- [**doxygen**](www.doxygen.org), of course :smile:
+- [**xsltproc**](http://www.sagehill.net/docbookxsl/InstallingAProcessor.html), on Linux you can get it via `sudo apt-get install xsltproc`.
+- **`YARP_ROOT`** environment variable set (but you can customize the scripts as you like)
+
 These scripts need to be located within the doxygen directory. When run, they replace the `rm -rf ./doc` and `doxygen ./generate.txt` instructions in the flow above by applying style sheet conversion and then producing documentation in one go. The final products will be then put under the **doxygen/generated-from-xml** directory. Therefore, doxygen must be aware of the latter path when collecting all the files we want to document. For this reason, this path is declared in the **`INPUT`** section of the `generate.txt` file.
 
 #### Why do we also specify the **idl_dox** directory as further input?
