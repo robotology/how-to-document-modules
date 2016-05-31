@@ -90,7 +90,7 @@ We don't go here into more details since at the following links you'll find offi
 - [xml description of your module](http://www.yarp.it/yarpmanager.html#module).
 - [Thrift services](http://www.yarp.it/thrift_tutorial_simple.html).
 
-Of course, aside from the documentation generated automatically from the code, the `README.md` file should always contain enough information about **installation instructions**, **dependencies**, **goal of your module**, **theory behind your implementation** and more.
+Of course, aside from the documentation generated automatically from the code, you should also fill the `README.md` file with information about **installation instructions**, **dependencies**, so as descriptions regarding the **goal of your module**, the **theory behind your implementation** and everything is necessary to help the user :smile:.
 
 #### Documentation generated from xml
 The xml file containing the general description of the modules cannot be automatically digested by doxygen, requiring first a conversion into the dox language by means of a style sheet parser shipped with Yarp. To this end, you can profitably rely on scripts we made for you, which automate this operation:
