@@ -4,7 +4,7 @@ This template repository provides a detailed guide on how your modules, and poss
 
 A clean and handy way to deal with your documentation is to exploit the [**GitHub Pages**](https://pages.github.com/), which represents a nice tool to publish software documentation online.
 
-Everything is basically done through the special branch called **`gh-pages`**. The branch must contain at the root level the **index.html** file pointing to the static documentation (generally generated via [**doxygen**](www.doxygen.org)) stored somewhere within the branch itself. Further, the static documentation might be composed of many products (sometimes images), thus it would be worth saving space on the repository by not retaining any history for those files.
+Everything is basically done through the special branch called **`gh-pages`**. The branch must contain at the root level the **index.html** file pointing to the static documentation (generally generated via [**doxygen**](http://www.doxygen.org)) stored somewhere within the branch itself. Further, the static documentation might be composed of many products (sometimes images), thus it would be worth saving space on the repository by not retaining any history for those files.
 
 First off, we explain how to **create the infrastructure** for the documentation using _git_ and keep it **up-to-date** throughout the changes the code undergoes. Then, we will dig into how we can use **doxygen** to generate the documentation.
 
@@ -98,7 +98,7 @@ The xml file containing the general description of the modules cannot be automat
 - [doc-compile.ps1](https://github.com/robotology/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.ps1): a powershell script for Windows.
 
 Dependencies to run these scripts are:
-- [**doxygen**](www.doxygen.org), of course :smile:
+- [**doxygen**](http://www.doxygen.org), of course :smile:
 - [**xsltproc**](http://www.sagehill.net/docbookxsl/InstallingAProcessor.html), on Linux you can get it via `sudo apt-get install xsltproc`.
 - **`YARP_ROOT`** environment variable set (but you can customize the scripts as you like)
 
