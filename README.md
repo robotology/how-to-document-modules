@@ -66,7 +66,7 @@ Whenever you update `master` branch then, do the following to update the documen
 git checkout gh-pages
 git rebase master
 cd doxygen
-rm -rf doc
+rm -rf ./doc
 doxygen ./generate.txt
 git add ./doc
 git log -1
@@ -96,7 +96,7 @@ The xml file containing the general description of the modules cannot be automat
 - [doc-compile.sh](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.sh): a bash script for Linux.
 - [doc-compile.ps1](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.ps1): a powershell script for Windows.
 
-These scripts need to be located within the doxygen directory. They apply style sheet conversion and produce documentation in one go. The final products will be then put under the **doxygen/generated-from-xml** directory. Therefore, doxygen must be aware of the latter path when collecting all the files we want to document. For this reason, this path is declared in the **`INPUT`** section of the `generate.txt` file.
+These scripts need to be located within the doxygen directory. When run, they replace the `rm -rf ./doc` and `doxygen ./generate.txt` instructions in the flow above by applying style sheet conversion and then producing documentation in one go. The final products will be then put under the **doxygen/generated-from-xml** directory. Therefore, doxygen must be aware of the latter path when collecting all the files we want to document. For this reason, this path is declared in the **`INPUT`** section of the `generate.txt` file.
 
 #### Why do we also specify the **idl_dox** directory as further input?
-This directory is necessary only if you provide Thrift services using the `yarp_add_idl` cmake directive. In this case, the file **modulename_IDL.h** will be generated automatically inside the **build**, which is generally ignored by doxygen in its search. Thereby, as **temporary workaround solution**, we suggest to `copy and paste` the header file from the build into the **idl_dox** stub and make doxygen aware of its presence by filling the **`INPUT`** parameter.
+This directory is necessary only if you provide Thrift services using the `yarp_add_idl` cmake directive. In this case, the header file **modulename_IDL.h** (or any equivalent name according to your setting) will be generated automatically inside the **build**, which is generally ignored by doxygen in its search. Thereby, as **temporary workaround solution**, we suggest to `copy and paste` the header file from the build into the **idl_dox** stub and make doxygen aware of its presence by filling the **`INPUT`** parameter.
