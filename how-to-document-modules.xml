@@ -7,7 +7,7 @@
   <description>Short description of your work.</description>
   <copypolicy> License terms, for example: released under the terms of the GNU GPL v2.0 .</copypolicy>
   <version> version of your code</version>
-  
+
   <description-long>
    Here you can provide a detailed description of what your module does, how it is structured, how it works, how to use it and so on.
   </description-long>
@@ -16,9 +16,9 @@
     <param default="default-value-0" desc="Describe the meaning and effect of parameter no. 0">parameter-0</param>
     <param default="default-value-1" desc="Describe the meaning and effect of parameter no. 1">parameter-1</param>
   </arguments>
- 
+
   <authors>
-    <author email="name.surname@iit.it"> Name Surname </author>
+    <author email="your-email@email.org"> Name Surname </author>
   </authors>
 
   <data>
@@ -37,7 +37,7 @@
           </description>
       </output>
   </data>
- 
+
   <services>
     <server>
       <type>howToDocument_IDL</type>
@@ -46,6 +46,5 @@
       <description>service port</description>
     </server>
   </services>
- 
-</module>
 
+</module>
