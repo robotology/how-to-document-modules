@@ -23,7 +23,7 @@ Now you have the same branch `gh-pages` also on your machine which tracks the _r
 
 Next step is to create the **static documentation locally**:
 - Provide thus a **sub-directory** called **`doxygen`** where you have to put the file **`generate.txt`** that tells doxygen how to produce the documentation.
-You can find a template `generate.txt` file [here](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/generate.txt) within this repository.
+You can find a template `generate.txt` file [here](https://github.com/robotology/how-to-document-modules/blob/gh-pages/doxygen/generate.txt) within this repository.
 
     Inside the `generate.txt` file, the most important parameter you are required to fill in is **`INPUT`**, which specifies the directories containing your code to be documented (a recursive search is typically done). An example follows:
     ```
@@ -42,7 +42,7 @@ doxygen ./generate.txt
  ```
  This will generate your documentation. The new directory **doxygen/doc** will appear containing all your documentation.
 
-- Create the `index.html` file at the root level of your repository that provides the entry point to your documentation. This is an [**example**](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/index.html) you have to tailor to your specific repository.
+- Create the `index.html` file at the root level of your repository that provides the entry point to your documentation. This is an [**example**](https://github.com/robotology/how-to-document-modules/blob/gh-pages/index.html) you have to tailor to your specific repository.
 
 - Stage, commit and push:
 ```
@@ -52,13 +52,13 @@ git commit -m "provided doxygen documentation"
 git push origin gh-pages
 ```
 
-After publishing the changes, you can visit the page http://robotology-playground.github.com/how-to-document-modules (of course use your github account and repository name in the url) and you will be redirected to the online documentation.
+After publishing the changes, you can visit the page http://robotology.github.com/how-to-document-modules (of course use your github account and repository name in the url) and you will be redirected to the online documentation.
 
 Finally, it is also a good practice to cite that url from within the _README.md_ file.
 
 
 ### Updating the documentation
-By creation, the special `gh-pages` branch should always mirror the `master` branch and should contain two things more: the doxygen directory along with the `index.html` file. Regarding the commit history, `gh-pages` should be always [one commit ahead the `master`](https://github.com/robotology-playground/how-to-document-modules/network).
+By creation, the special `gh-pages` branch should always mirror the `master` branch and should contain two things more: the doxygen directory along with the `index.html` file. Regarding the commit history, `gh-pages` should be always [one commit ahead the `master`](https://github.com/robotology/how-to-document-modules/network).
 
 Whenever you update `master` branch then, do the following to update the documentation accordingly:
 
@@ -80,21 +80,22 @@ The **`git log -1`** command serves as verification and does display the very la
 
 You have to provide the documentation of your module through an _xml file_:
 
-- **modulename.xml** for the general description.
+- [**modulename.xml**](https://github.com/robotology/how-to-document-modules/blob/master/how-to-document-modules.xml) for the general description.
 
 Moreover, if your module also exposes an IDL generated API, then the corresponding services should be documented in the relative _thrift file_:
 
-- **idl.thrift** listing and documenting all the available services.
-
+- [**idl.thrift**](https://github.com/robotology/how-to-document-modules/blob/master/src/idl.thrift) listing and documenting all the available services.
 
 We don't go here into more details since at the following links you'll find official guidelines on how to write the documentation for:
 - [xml description of your module](http://www.yarp.it/yarpmanager.html#module).
 - [Thrift services](http://www.yarp.it/thrift_tutorial_simple.html).
 
+Of course, aside from the documentation generated automatically from the code, the `README.md` file should always contain enough information about **installation instructions**, **dependencies**, **goal of you module**, **theory behind your implementation** and more.
+
 #### Documentation generated from xml
 The xml file containing the general description of the modules cannot be automatically digested by doxygen, requiring first a conversion into the dox language by means of a style sheet parser shipped with Yarp. To this end, you can profitably rely on scripts we made for you, which automate this operation:
-- [doc-compile.sh](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.sh): a bash script for Linux.
-- [doc-compile.ps1](https://github.com/robotology-playground/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.ps1): a powershell script for Windows.
+- [doc-compile.sh](https://github.com/robotology/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.sh): a bash script for Linux.
+- [doc-compile.ps1](https://github.com/robotology/how-to-document-modules/blob/gh-pages/doxygen/doc-compile.ps1): a powershell script for Windows.
 
 These scripts need to be located within the doxygen directory. When run, they replace the `rm -rf ./doc` and `doxygen ./generate.txt` instructions in the flow above by applying style sheet conversion and then producing documentation in one go. The final products will be then put under the **doxygen/generated-from-xml** directory. Therefore, doxygen must be aware of the latter path when collecting all the files we want to document. For this reason, this path is declared in the **`INPUT`** section of the `generate.txt` file.
 
