@@ -94,8 +94,7 @@ int main(int argc,char *argv[])
 
     FakeModule mod;
     ResourceFinder rf;
-    rf.setDefaultContext("how-to-document-modulesn");
+    rf.setDefaultContext("how-to-document-modules");
     rf.configure(argc,argv);
     return mod.runModule(rf);
 }
-
