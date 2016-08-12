@@ -87,7 +87,7 @@ Moreover, if your module also exposes an IDL generated API, then the correspondi
 - [**idl.thrift**](https://github.com/robotology/how-to-document-modules/blob/master/src/idl.thrift) listing and documenting all the available services.
 
 We don't go here into more details since at the following links you'll find official guidelines on how to write the documentation for:
-- [xml description of your module](http://www.yarp.it/yarpmanager.html#module).
+- [xml description of your module](http://wiki.icub.org/brain/xml_module_documentation.html).
 - [Thrift services](http://www.yarp.it/thrift_tutorial_simple.html).
 
 Of course, aside from the documentation generated automatically from the code, you should also fill the `README.md` file with information about **installation instructions**, **dependencies**, so as descriptions regarding the **goal of your module**, the **theory behind your implementation** and everything is necessary to help the user :smile:.
