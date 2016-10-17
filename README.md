@@ -58,7 +58,7 @@ Finally, it is also a good practice to cite that url from within the `README.md`
 
 
 ### Updating the documentation
-By creation, the special `gh-pages` branch should always mirror the `master` branch and should contain two things more: the doxygen directory along with the `index.html` file. Regarding the commit history, `gh-pages` should be always [one commit ahead the `master`](https://github.com/robotology/how-to-document-modules/network).
+By creation, the special `gh-pages` branch should always mirror the `master` branch and should contain two things more: the doxygen directory along with the `index.html` file. Regarding the commit history, `gh-pages` should be always [one commit ahead of `master`](https://github.com/robotology/how-to-document-modules/network).
 
 Whenever you update `master` branch then, do the following to update the documentation accordingly:
 
