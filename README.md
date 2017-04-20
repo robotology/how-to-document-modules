@@ -10,7 +10,9 @@ First off, we explain how to **create the infrastructure** for the documentation
 
 Let's start :sparkles:
 
-### Creating the infrastructure
+### Static documentation (i.e. you have to build it manually!)
+
+#### Creating the infrastructure
 From `master`, create a new branch called `gh-pages` on your repository. Then, locally do:
 
 ```
@@ -57,7 +59,7 @@ After publishing the changes, you can visit the page http://robotology.github.co
 Finally, it is also a good practice to cite that url from within the `README.md` file.
 
 
-### Updating the documentation
+#### Updating the documentation
 By creation, the special `gh-pages` branch should always mirror the `master` branch and should contain two things more: the doxygen directory along with the `index.html` file. Regarding the commit history, `gh-pages` should be always [one commit ahead of `master`](https://github.com/robotology/how-to-document-modules/network).
 
 Whenever you update `master` branch then, do the following to update the documentation accordingly:
@@ -75,6 +77,78 @@ git push --force-with-lease
 git checkout master
 ```
 The **`git log -1`** command serves as verification and does display the very last commit message on the `gh-pages` branch, which must be "*provided doxygen documentation*", that is the one specified initially at creation time. The combination of **`git commit --amend`** and **`git push --force-with-lease`** aim to modify the latest stored commit instead of creating a brand new one and eventually force publishing it. This way, we always retain only one commit for the documentation instead of dealing with its whole history.
+
+
+### Automatic documentation (i.e. Let Travis do the job!)
+
+#### Creating the infrastructure
+In your git project folder create a new **empty** branch called `gh-pages` on your repository.
+
+```
+cd your-project-folder
+git checkout --orphan gh-pages
+```
+
+If your project is not a newly created project you probably already have tracked files.
+The following command will clean the working area.
+
+```
+git rm -rf .
+```
+
+Now create the *permanent* files (the ones which will not be overwritten by the automatic documentation procedure). Usually this means a `.gitignore` file, possibly different from the one in the `master` branch of your project, and the `index.html` file which will point to the documentation.
+If your doxygen configuration generates the *html* docs in `html` folder, the following `index.html` should be ok.
+
+```html
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="refresh" content="1;url=html/index.html">
+        <title>Page Redirection</title>
+    </head>
+    <body>
+        If you are not redirected automatically, follow the <a href="html/index.html">link to the documentation</a>
+    </body>
+</html>
+```
+
+Now you can commit and push to the `gh-pages` branch
+```
+git add .gitignore index.html
+git commit -m "initial commit"
+git push origin gh-pages
+```
+
+Now we have to configure **Travis-CI** to automatically generate the documentation and push to the `gh-pages` branch at every commit. This can be done by modifying the `.travis.yml` file.
+Open your `travis.yml` file, and in the `after_success` block add the following code
+
+```yaml
+[...]
+after_success:
+  # Generate the docs only if master, the travis_build_docs is true and we can use secure variables
+  - >-
+    if [[ "$TRAVIS_BRANCH" = "master" && -n "$TRAVIS_BUILD_DOCS" && "$TRAVIS_PULL_REQUEST" = "false" ]] ; then
+      cd $PROJECT_DIR_ABS
+      source .ci/setup-ssh.sh || travis_terminate 1
+      .ci/generateDocumentation.sh || travis_terminate 1
+    fi
+```
+
+Importantly, the `if` statement checks three conditions:
+- the branch must be `master` (for now multiple versions docs are not supported)
+- the user-defined variable `TRAVIS_BUILD_DOCS` must be defined. This is used to use only one travis job to build the documentation in case a build matrix is present
+- builds on pull requests are disabled. Only normal commits on `master` are used. Note that once a PR is accepted, it always generate a commit on the destination branch
+
+
+In the previous lines to additional scripts located in the `.ci` folder are called.
+One, `.ci/setup-ssh.sh` is needed to manage authentication in Travis (as Travis needs to push on the repository the generated documentation). We discuss how to setup SSH for Travis in [Setup SSH use for Travis](#Setup-SSH-use-for-Travis).
+The second script, `.ci/generateDocumentation.sh` is the script which actually calls doxygen. See [Generate the documentation](#Generate-the-documentation) for details on the script.
+
+#### Setup SSH use for Travis
+
+#### Generate the documentation
+
 
 ### How to write the documentation
 
