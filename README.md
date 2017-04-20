@@ -142,8 +142,8 @@ Importantly, the `if` statement checks three conditions:
 
 
 In the previous lines to additional scripts located in the `.ci` folder are called.
-One, `.ci/setup-ssh.sh` is needed to manage authentication in Travis (as Travis needs to push on the repository the generated documentation). We discuss how to setup SSH for Travis in [Setup SSH use for Travis](#Setup-SSH-use-for-Travis).
-The second script, `.ci/generateDocumentation.sh` is the script which actually calls doxygen. See [Generate the documentation](#Generate-the-documentation) for details on the script.
+One, `.ci/setup-ssh.sh` is needed to manage authentication in Travis (as Travis needs to push on the repository the generated documentation). We discuss how to setup SSH for Travis in [Setup SSH use for Travis](#setup-ssh-use-for-travis).
+The second script, `.ci/generateDocumentation.sh` is the script which actually calls doxygen. See [Generate the documentation](#generate-the-documentation) for details on the script.
 
 #### Setup SSH use for Travis
 
