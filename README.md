@@ -151,7 +151,7 @@ There are multiple options to give Travis push permissions on the repository. We
 To add a new deploy key to your repository follow these [instructions](https://developer.github.com/guides/managing-deploy-keys/#deploy-keys).
 Once we added the new key, we have to encrypt (to increase the security) and to give to Travis the private key.
 The easiest way it to use the Travis Command line tools and follow [this guide](https://docs.travis-ci.com/user/encrypting-files). 
-Follow the printed instructions. The command line utility should have already updated your repository settings in Travis, by adding the encrypted variables. You have to add to the repository **onky** the encrypted private key.
+Follow the printed instructions. The command line utility should have already updated your repository settings in Travis, by adding the encrypted variables. You have to add to the repository **only** the encrypted private key.
 
 The script to load the ssh key in travis is the following
 
@@ -288,7 +288,11 @@ fi
 
 Note that in the above script there are some assumptions:
 - the main `.dox` file is defined by the `DOXYFILE` variable.
-- If you use a Doxygen Layout file, we copy it in the current directory: `cp $TRAVIS_BUILD_DIR/doc/DoxygenLayout.xml .`. This is because it seems that the DoxygenLayout file path is taken with respect to where the `doxygen` command is executed.
+- If you use a Doxygen Layout file, we copy it in the current directory:
+```sh
+cp $TRAVIS_BUILD_DIR/doc/DoxygenLayout.xml .
+```
+This is because it seems that the DoxygenLayout file path is taken with respect to where the `doxygen` command is executed.
 - To keep the repository clean we remove all the commits but the first one. Note that in order to keep the script simple at least one commit should exist (and it does if you followed this guide)
 
 ### How to write the documentation
