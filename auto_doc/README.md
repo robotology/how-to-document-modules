@@ -1,19 +1,19 @@
-## Automatic documentation (i.e. Let Travis do the job!)
+## Automatic documentation
 
 ### Creating the infrastructure
 
 In your git project folder create a new **empty** branch called `gh-pages` on your repository.
 
-```
-cd your-project-folder
-git checkout --orphan gh-pages
+```sh
+$ cd your-project-folder
+$ git checkout --orphan gh-pages
 ```
 
 If your project is not a newly created project you probably already have tracked files.
 The following command will clean the working area.
 
-```
-git rm -rf .
+```sh
+$ git rm -rf .
 ```
 
 Now create the *permanent* files (the ones which will not be overwritten by the automatic documentation procedure). Usually this means a `.gitignore` file, possibly different from the one in the `master` branch of your project, and the `index.html` file which will point to the documentation.
@@ -34,10 +34,11 @@ If your doxygen configuration generates the *html* docs in `html` folder, the fo
 ```
 
 Now you can commit and push to the `gh-pages` branch
-```
-git add .gitignore index.html
-git commit -m "initial commit"
-git push origin gh-pages
+
+```sh
+$ git add .gitignore index.html
+$ git commit -m "initial commit"
+$ git push origin gh-pages
 ```
 
 Now we have to configure **Travis-CI** to automatically generate the documentation and push to the `gh-pages` branch at every commit. This can be done by modifying the `.travis.yml` file.
@@ -146,7 +147,6 @@ GH_REPO_ORG=`echo $TRAVIS_REPO_SLUG | cut -d "/" -f 1`
 GH_REPO_NAME=`echo $TRAVIS_REPO_SLUG | cut -d "/" -f 2`
 GH_REPO_REF="github.com/$GH_REPO_ORG/$GH_REPO_NAME.git"
 DOXYFILE=$TRAVIS_BUILD_DIR/doc/Doxyfile
-
 
 # Get the current gh-pages branch
 git clone -b gh-pages git@github.com:$GH_REPO_ORG/$GH_REPO_NAME.git code_docs
