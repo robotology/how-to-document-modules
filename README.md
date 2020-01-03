@@ -80,8 +80,8 @@ The **`git log -1`** command serves as verification and does display the very la
 ### :octocat: Automatic documentation (a.k.a. let GitHub do the job for us!)
 
 All the steps we have covered so far can be conveniently improved and automatized using [GitHub Actions](https://github.com/features/actions).
-To do so, just drop the file [.github/workflows/gh-pages.yml](.github/workflows/gh-pages.yml) in your repository and then copy out the following
-badge within your main README.md file.
+
+To do so, just drop the file [.github/workflows/gh-pages.yml](.github/workflows/gh-pages.yml) in your repository (keeping the path unchanged) and then copy out the following badge within your main README.md file.
 
 ![gh-pages](https://github.com/robotology/how-to-document-modules/workflows/GitHub%20Pages/badge.svg)
 
