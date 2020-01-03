@@ -77,10 +77,13 @@ git checkout master
 ```
 The **`git log -1`** command serves as verification and does display the very last commit message on the `gh-pages` branch, which must be "*provided doxygen documentation*", that is the one specified initially at creation time. The combination of **`git commit --amend`** and **`git push --force-with-lease`** aim to modify the latest stored commit instead of creating a brand new one and eventually force publishing it. This way, we always retain only one commit for the documentation instead of dealing with its whole history.
 
-### Automatic documentation (a.k.a. let's Travis do the job for us!)
+### Automatic documentation (a.k.a. let GitHub do the job for us!)
 
-All the steps we have covered so far can be conveniently improved and automatized using a CI service as [Travis](https://travis-ci.org).
-To do so, follow these new [**instructions**](./auto_doc/README.md).
+All the steps we have covered so far can be conveniently improved and automatized using [GitHub Actions](https://github.com/features/actions).
+To do so, just drop the file [.github/workflows/gh-pages.yml](.github/workflows/gh-pages.yml) in your repository and then copy out the following
+badge within your main README.md file.
+
+![gh-pages](https://github.com/robotology/how-to-document-modules/workflows/GitHub%20Pages/badge.svg)
 
 ### How to write the documentation
 
