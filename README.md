@@ -14,7 +14,7 @@ Let's start :sparkles:
 
 From `master`, create a new branch called `gh-pages` on your repository. Then, locally do:
 
-```
+```sh
 git checkout master
 git fetch origin
 git branch gh-pages --track origin/gh-pages
@@ -37,7 +37,7 @@ You can find a template `generate.txt` file [here](https://github.com/robotology
     To find out more about other doxygen parameters, we suggest you to look directly at the online guide.
 
 - Now type:
-```
+```sh
 cd doxygen
 doxygen ./generate.txt
  ```
@@ -46,7 +46,7 @@ doxygen ./generate.txt
 - Create the `index.html` file at the root level of your repository that provides the entry point to your documentation. This is an [**example**](https://github.com/robotology/how-to-document-modules/blob/gh-pages/index.html) you have to tailor to your specific repository.
 
 - Stage, commit and push:
-```
+```sh
 git add ./doxygen
 git add ./index.html
 git commit -m "provided doxygen documentation"
@@ -62,8 +62,7 @@ Finally, it is also a good practice to cite that url from within the `README.md`
 By creation, the special `gh-pages` branch should always mirror the `master` branch and should contain two things more: the doxygen directory along with the `index.html` file. Regarding the commit history, `gh-pages` should be always [one commit ahead of `master`](https://github.com/robotology/how-to-document-modules/network).
 
 Whenever you update `master` branch then, do the following to update the documentation accordingly:
-
-```
+```sh
 git checkout gh-pages
 git rebase master
 cd doxygen
@@ -75,6 +74,7 @@ git commit --amend
 git push --force-with-lease
 git checkout master
 ```
+
 The **`git log -1`** command serves as verification and does display the very last commit message on the `gh-pages` branch, which must be "*provided doxygen documentation*", that is the one specified initially at creation time. The combination of **`git commit --amend`** and **`git push --force-with-lease`** aim to modify the latest stored commit instead of creating a brand new one and eventually force publishing it. This way, we always retain only one commit for the documentation instead of dealing with its whole history.
 
 ### Automatic documentation (a.k.a. let GitHub do the job for us!)
