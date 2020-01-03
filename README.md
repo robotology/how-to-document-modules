@@ -77,7 +77,7 @@ git checkout master
 
 The **`git log -1`** command serves as verification and does display the very last commit message on the `gh-pages` branch, which must be "*provided doxygen documentation*", that is the one specified initially at creation time. The combination of **`git commit --amend`** and **`git push --force-with-lease`** aim to modify the latest stored commit instead of creating a brand new one and eventually force publishing it. This way, we always retain only one commit for the documentation instead of dealing with its whole history.
 
-### Automatic documentation (a.k.a. let GitHub do the job for us!)
+### :octocat: Automatic documentation (a.k.a. let GitHub do the job for us!)
 
 All the steps we have covered so far can be conveniently improved and automatized using [GitHub Actions](https://github.com/features/actions).
 To do so, just drop the file [.github/workflows/gh-pages.yml](.github/workflows/gh-pages.yml) in your repository and then copy out the following
