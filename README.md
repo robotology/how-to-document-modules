@@ -81,7 +81,7 @@ The **`git log -1`** command serves as verification and does display the very la
 
 All the steps we have covered so far can be conveniently improved and automatized using [GitHub Actions](https://github.com/features/actions).
 
-To do so, just drop the file [.github/workflows/gh-pages.yml](.github/workflows/gh-pages.yml) in your repository (keeping the path unchanged.
+To do so, just drop the file [.github/workflows/gh-pages.yml](.github/workflows/gh-pages.yml) in your repository, keeping the path unchanged.
 
 Finally, copy out this badge within your main README.md file.
 
