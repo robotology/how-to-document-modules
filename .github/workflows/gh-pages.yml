@@ -14,7 +14,7 @@ jobs:
       - name: Dependencies
         run: |
           sudo apt update
-          sudo apt install -y xsltproc doxygen doxygen-doc texlive ghostscript graphviz
+          sudo apt install -y xsltproc doxygen doxygen-doc texlive texlive-font-utils texlive-latex-extra ghostscript graphviz
 
       - name: Check remote
         run: git ls-remote --heads --exit-code https://github.com/${{ github.repository }}.git gh-pages
