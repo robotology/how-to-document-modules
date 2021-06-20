@@ -53,7 +53,7 @@ git commit -m "provided doxygen documentation"
 git push origin gh-pages
 ```
 
-After publishing the changes, you can visit the page http://robotology.github.com/how-to-document-modules (of course use your github account and repository name in the url) and you will be redirected to the online documentation.
+After publishing the changes, you can visit the page https://robotology.github.io/how-to-document-modules (of course use your github account and repository name in the url) and you will be redirected to the online documentation.
 
 Finally, it is also a good practice to cite that url from within the `README.md` file.
 
